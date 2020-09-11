@@ -16,21 +16,49 @@ npm install --save tailwindcss autoprefixer fishtown-analytics/fishtown-ui
 
 ### Tailwind Theme
 
-Follow the usage instructions for Tailwind. Use the Fishtown UI theme in your Tailwind configuration.
+After installing Tailwind and Fishtown UI, follow the [usage instructions for Tailwind](https://tailwindcss.com/docs/installation#add-tailwind-to-your-css).
+
+Apply the Fishtown UI theme in your Tailwind configuration.
 
 ```js
 // Your project's tailwind.config.js
 const fishtownUiTheme = require("fishtown-ui/theme");
 
+// Example config with a custom color
 module.exports = {
   ...fishtownUiTheme,
-  // customizations...
+  // Customizations will overwrite the shallow-copy spread, so spread again where appropriate
+  theme: {
+    extend: {
+      colors: {
+        ...fishtownUiTheme.theme.extend.colors,
+        "sextant-yellow": "#ffb600",
+      },
+    },
+  },
 };
 ```
 
 ### Component Library
 
-We don't have components yet, but they are on our internal roadmap.
+We don't have ready-to-use components yet, but future usage will roughly look like the following.
+
+We currently only export React components written in TypeScript.
+
+```tsx
+import React from "react";
+import { Button } from "fishtown-ui";
+
+const logIn = () => {
+  /* ... */
+};
+
+const LogInButton: React.FC = () => {
+  return <Button onClick={logIn}>Log In</Button>;
+};
+
+export default LogInButton;
+```
 
 ## Contributing
 
@@ -39,6 +67,7 @@ We're not quite ready for contributions at this moment. We'll update this sectio
 ## Roadmap
 
 - Define appropriate use of Storybook
+- Define default fonts and iconography
 - Define critical components
 - Determine if we should export CSS file(s) with compositions (`@apply` definitions)
 
