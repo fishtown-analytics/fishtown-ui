@@ -1,0 +1,37 @@
+@layer components {
+  .fui-checkbox {
+    @apply tw-inline-block;
+  }
+
+  .fui-checkbox label {
+    @apply tw-flex;
+  }
+
+  .fui-checkbox_label {
+    @apply tw-leading-4 tw-text-sm tw-select-none;
+  }
+
+  .fui-checkbox_checkbox {
+    @apply tw-flex tw-content-center tw-justify-center tw-w-4 tw-h-4 tw-mr-2 tw-border-gray-500 tw-border tw-border-solid tw-rounded-sm tw-text-white tw-cursor-pointer;
+  }
+
+  .fui-checkbox_checkbox svg {
+    @apply tw-mt-px;
+  }
+
+  .fui-checkbox--is-checked .fui-checkbox_checkbox {
+    @apply tw-border-transparent tw-bg-teal-500;
+  }
+
+  .fui-checkbox--is-disabled .fui-checkbox_checkbox {
+    @apply tw-border-transparent tw-bg-gray-500 tw-cursor-default;
+  }
+
+  .fui-checkbox--is-disabled .fui-checkbox_label {
+    @apply tw-opacity-75;
+  }
+
+  .fui-checkbox--is-disabled:not(.fui-checkbox--is-checked) .fui-checkbox_checkbox {
+    @apply tw-border-gray-400 tw-bg-transparent;
+  }
+}

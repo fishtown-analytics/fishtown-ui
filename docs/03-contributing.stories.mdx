@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="docs/Contributing" />
+
+# Contributing
+
+## 1. Add a new component
+
+Components are stored in /components, in their own sub-directories. Each subdirectory holds
+
+- Component.tsx - the main component file
+- Component.stories.tsx - a file containing all the stories (component preview in storybook) and configurations
+- Component.test.tsx - Component jest tests.
+- index.ts - an index file for the folder, exporting at the very least `export * from './Component'`
+- (optional) component.css - a corresponding css file for your component, this must also be imported within `/components/custom-components.css`
+
+## 2. Build new component functionality
+
+- Create your component following our [Getting Started](?path=/story/docs-getting-started--page) and [Code Practices](?path=/story/docs-code-practices--page) guides.
+- Write unit tests for your component using jest
+
+## 3. Build documentation for your component
+
+- Document all props for your component using JSDoc style comments
+
+```tsx
+export interface MyProps {
+  /** A short description of what this prop does */
+  someProp: string;
+}
+```
+
+- Create stories to showcase all props of your component, depending on the component this may mean a single story that allows a developer to configure
+  each prop or doing custom configurations of props in multiple stories to highlight specific functionality.
+
+## 4. Create a PR and get Reviews
+
+## 5. Ship it!

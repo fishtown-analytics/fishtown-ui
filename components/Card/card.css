@@ -1,0 +1,14 @@
+@layer components {
+    .fui-card {
+      @apply tw-inline-block tw-box-border;
+    }
+    
+    .fui-card-container {
+        @apply tw-container
+    }
+
+    .fui-card-body {
+        @apply tw-box-border;
+    }
+  }
+  

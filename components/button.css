@@ -1,8 +1,0 @@
-/* these styles aren't currently used, but serve as an example of how we might use the .css files */
-.tw-btn-primary {
-  @apply tw-bg-teal-500 tw-text-white tw-transition-colors tw-duration-200 tw-font-bold tw-py-2 tw-px-4 tw-rounded;
-}
-
-.tw-btn-primary:hover {
-  @apply tw-bg-teal-700;
-}
