@@ -1,0 +1,120 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="docs/Code Practices" />
+
+# Code Practices
+
+## Populating the Args Table
+
+In order for the documentation engine to properly infer types from your component you must implement your components typing in a specific way.
+
+### Bad
+
+```tsx
+import React from 'react';
+
+export const MyComponent: React.FC<Props> = () => ...
+```
+
+### Good
+
+```tsx
+import React, { FC } from 'react';
+
+export const MyComponent: FC<Props> = () => ...
+```
+
+## Styling components
+
+We use tailwind as a utility CSS library with a customized prefix `tw-*`. In a lot of simple cases you might not need to build your own .css file for a component.
+Just use the provided tailwind classes directly on markup.
+
+### Bad
+
+```html
+<style>
+  .myComponent {
+    display: block;
+    background: #23435;
+  }
+
+  .myComponent div {
+    color: white;
+  }
+</style>
+
+<MyComponent>
+  <div>...</div>
+</MyComponent>
+```
+
+### Good
+
+```html
+<MyComponent className="tw-block tw-bg-teal-500">
+  <div className="tw-text-white">...</div>
+</MyComponent>
+```
+
+## Extracted Components
+
+In more complex components you might need to supply some CSS. These cases usually come about when there is some intended visual state change in a component.
+By applying classes and swapping state based parent classes you can drive large scale visual change with simple javascript rather than a lot of conditional class names throughout your html structure.
+
+When providing a new css file it's important to include it in the right tailwind _layer_, this will ensure source order and include the component's styles alongside other component styles.
+
+### Bad
+
+```css
+.my-class {
+  color: blue;
+}
+
+.my-class--focused {
+  color: teal;
+}
+```
+
+### _Better_
+
+```css
+@layer components {
+  .my-class {
+    color: blue;
+  }
+
+  .my-class--focused {
+    color: teal;
+  }
+}
+```
+
+When writing CSS strive to use tailwind's _apply_ rather than writing css directly. This allows for theming and consistency in sizes/colors/etc.
+
+### Bad
+
+```css
+@layer components {
+  .my-class {
+    color: blue;
+  }
+
+  .my-class--focused {
+    color: teal;
+  }
+}
+```
+
+### Good
+
+```css
+@layer components {
+  .my-class {
+    @apply tw-text-blue-500;
+  }
+
+  .my-class--focused {
+    @apply tw-text-teal-500;
+  }
+}
+```

@@ -22,7 +22,7 @@ Apply the Fishtown UI theme in your Tailwind configuration.
 
 ```js
 // Your project's tailwind.config.js
-const fishtownUiTheme = require("fishtown-ui/theme");
+const fishtownUiTheme = require('fishtown-ui/theme');
 
 // Example config with a custom color
 module.exports = {
@@ -32,7 +32,7 @@ module.exports = {
     extend: {
       colors: {
         ...fishtownUiTheme.theme.extend.colors,
-        "sextant-yellow": "#ffb600",
+        'sextant-yellow': '#ffb600',
       },
     },
   },
@@ -58,8 +58,8 @@ We don't have ready-to-use components yet, but future usage will roughly look li
 We currently only export React components written in TypeScript.
 
 ```tsx
-import React from "react";
-import { Button } from "fishtown-ui";
+import React from 'react';
+import { Button } from 'fishtown-ui';
 
 const logIn = () => {
   /* ... */
@@ -74,7 +74,7 @@ export default LogInButton;
 
 ## Contributing
 
-We're not quite ready for contributions at this moment. We'll update this section when we're ready!
+Read our [contributing guide](/story/docs-contributing--page) (in Storybook)
 
 ## Roadmap
 
