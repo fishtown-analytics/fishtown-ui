@@ -36,7 +36,7 @@ export const Checkbox: FC<CheckboxProps> = ({
 }): React.ReactElement => {
   const isCheckedNotSet = isChecked === undefined;
   const [checked, setChecked] = useState<boolean>(
-    isCheckedNotSet ? isCheckedDefault : isChecked
+    isCheckedNotSet ? !!isCheckedDefault : !!isChecked
   );
   const classNames = cx([rootClassName, className], {
     [`${rootClassName}--is-checked`]: checked,
@@ -53,7 +53,7 @@ export const Checkbox: FC<CheckboxProps> = ({
         }
       }
     },
-    [checked, isCheckedNotSet, isDisabled]
+    [checked, isCheckedNotSet, isDisabled, onChange]
   );
 
   useEffect(() => {
