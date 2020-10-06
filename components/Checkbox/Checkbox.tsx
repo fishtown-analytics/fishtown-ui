@@ -13,7 +13,7 @@ export interface CheckboxProps {
   className?: string;
   /** The checkbox state at initial render */
   isCheckedDefault?: boolean;
-  /** Used to lock the checkbox state for programatic control */
+  /** Used to lock the checkbox state for programmatic control */
   isChecked?: boolean;
   /** A true/false toggle for the checkbox state, if disabled interactions are disabled */
   isDisabled?: boolean;
