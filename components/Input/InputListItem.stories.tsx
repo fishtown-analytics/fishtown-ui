@@ -18,12 +18,3 @@ Basic.args = {
     isDisabled: false,
     index: 1,
 };
-
-export const Programatic = Template.bind({});
-Programatic.args = {
-  ...Basic.args,
-  value: "new value"
-};
-Programatic.argTypes = {
-  isDisabled: { control: { disable: true } },
-};

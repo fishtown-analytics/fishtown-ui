@@ -14,15 +14,6 @@ Template.argTypes = {};
 
 export const Basic = Template.bind({});
 Basic.args = {
-    values: ["value 1", "value 2"],
+    values: ["value 1", "value 2", "value 3"],
     isDisabled: false,
-};
-
-export const Programatic = Template.bind({});
-Programatic.args = {
-  ...Basic.args,
-  values: ["value 1", "value 2", "value 3"]
-};
-Programatic.argTypes = {
-  isDisabled: { control: { disable: true } },
 };
