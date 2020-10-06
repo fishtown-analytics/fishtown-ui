@@ -1,0 +1,25 @@
+.fui-input-list-item {
+    padding-bottom: 11px;
+}
+
+.fui-input-list-item__field {
+    background-color: #f9fafb;
+    border: none;
+    border-radius: 4px;
+    height: 24px;
+    width: 239px;
+}
+
+.fui-input-list-item__field--dark {
+    background: #f9fafb;
+}
+    
+.fui-input-list-item__delete {
+    fill: #a9a9a9;
+    color: #a9a9a9;
+}
+
+.fui-input-list-item__delete:hover {
+    fill: #e21b10;
+    color: #e21b10;
+}
