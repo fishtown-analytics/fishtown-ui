@@ -24,12 +24,12 @@ Basic.argTypes = {
   isChecked: { control: { disable: true } },
 };
 
-export const Programatic = Template.bind({});
-Programatic.args = {
+export const Programmatic = Template.bind({});
+Programmatic.args = {
   ...Basic.args,
   isChecked: false,
 };
-Programatic.argTypes = {
+Programmatic.argTypes = {
   name: { control: { disable: true } },
   id: { control: { disable: true } },
   isDisabled: { control: { disable: true } },
