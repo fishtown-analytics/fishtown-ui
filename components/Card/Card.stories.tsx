@@ -3,7 +3,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Card, CardProps } from './Card';
-import { InputList } from '../Input/InputList';
+import { InputList } from '../InputList/InputList';
 
 export default {
   title: 'Components/Card',
