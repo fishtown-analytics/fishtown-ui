@@ -7,7 +7,7 @@ export interface InputListItemProps {
     /** Input index in list */
     index: number;
     /** Classname(s) for the wrapping element */
-    classNames?: string;
+    className?: string;
     /** A true/false toggle for the input state, if disabled interactions are disabled */
     isDisabled?: boolean;
     /** Callback triggered when the input list item state changes */
@@ -22,7 +22,7 @@ export const InputListItem: FC<InputListItemProps> = ({
   index,
   onDelete,
   onEdit,
-  classNames,
+  className,
   value,
   isDisabled,
 }): React.ReactElement => {
@@ -39,7 +39,7 @@ export const InputListItem: FC<InputListItemProps> = ({
   };
 
   return (
-    <div className={`${rootClassName} ${classNames ? ` ${classNames}` : ''}`}>
+    <div className={`${rootClassName} ${className ? ` ${className}` : ''}`}>
       <input
         data-testid="input-list-item-field"
         className={`${rootClassName}__field`}

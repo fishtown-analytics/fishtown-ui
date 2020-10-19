@@ -9,13 +9,13 @@ export interface InputListValue {
 
 export interface InputListProps {
     /** List of the input values */
-    values: [];
+    values: string[];
     /** Callback triggered when the input list state changes */
     onAdd?: () => void;
     /** Callback triggered when the input list state changes */
     onDelete?: (index: number) => void;
     /** Classname(s) for the wrapping element */
-    classNames?: string;
+    className?: string;
     /** Callback triggered when the input list state changes */
     onChange?: (value: string[]) => void;
     /** Callback triggered when the input list state changes */
@@ -29,7 +29,7 @@ export interface InputListProps {
 const rootClassName = 'fui-input-list';
 
 export const InputList: FC<InputListProps> = ({
-  classNames,
+  className,
   children,
   onAdd,
   onChange,
@@ -45,7 +45,7 @@ export const InputList: FC<InputListProps> = ({
   }, [values, onChange]);
 
   return (
-    <div className={`${rootClassName}${classNames ? ` ${classNames}` : ''}`}>
+    <div className={`${rootClassName}${className ? ` ${className}` : ''}`}>
       <div className={`${rootClassName}__body`}>
         {values.map((value, index) => {
           return (
