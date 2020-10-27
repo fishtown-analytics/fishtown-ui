@@ -21,7 +21,15 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <button title={title} disabled={isDisabled} type="button" className={`${rootClassName}-${size} ${rootClassName}-${variant} ${classNames ? ` ${classNames}` : ''}`} {...props}>
+    <button
+      title={title}
+      disabled={isDisabled}
+      type="button"
+      className={`${rootClassName}-${size} ${rootClassName}-${variant} ${
+        classNames ? ` ${classNames}` : ''
+      }`}
+      {...props}
+    >
       {children}
     </button>
   );
