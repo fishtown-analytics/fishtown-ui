@@ -1,0 +1,133 @@
+import { Meta, Props, Story, Preview, Canvas } from '@storybook/addon-docs/blocks';
+
+import { Field } from './Field';
+
+<Meta title="Components/Forms/Field" component={Field} />
+
+# Field
+
+A wrapper for form elements which provides label, help text, read-only state, edit state, and error handling.
+This component does not specifically handle form inputs directly, they can be provided through a render prop or a react children callback.
+The input render prop includes inner props to handle styling (className) as well as tying the form input to the label (id)
+
+## Props
+
+<Props of={Field} />
+
+## Examples
+
+### Basic read-only `Field`
+
+<Canvas>
+  <Story
+    name="Read Only"
+    args={{
+      label: 'Field Label',
+      displayValue: 'Read Only Value',
+      fieldId: undefined,
+      input: (inputProps) => (
+        <input type="text" {...inputProps} defaultValue="Editable Value" />
+      ),
+    }}
+  >
+    {(args) => <Field {...args} />}
+  </Story>
+</Canvas>
+
+### Basic edit mode `Field`
+
+<Canvas>
+  <Story
+    name="Editable"
+    args={{
+      label: 'Field Label',
+      displayValue: 'Read Only Value',
+      isEdit: true,
+      input: (inputProps) => (
+        <input type="text" {...inputProps} defaultValue="Editable Value" />
+      ),
+      fieldId: undefined,
+    }}
+  >
+    {(args) => <Field {...args} />}
+  </Story>
+</Canvas>
+
+### `Field` with help text
+
+<Canvas>
+  <Story
+    name="Help Text"
+    args={{
+      label: 'Field Label',
+      displayValue: 'Read Only Value',
+      isEdit: true,
+      input: (inputProps) => (
+        <input type="text" {...inputProps} defaultValue="Editable Value" />
+      ),
+      helpText: 'This is help text, to help you understand the field',
+      fieldId: undefined,
+    }}
+  >
+    {(args) => <Field {...args} />}
+  </Story>
+</Canvas>
+
+### `Field` with an error
+
+<Canvas>
+  <Story
+    name="Errors"
+    args={{
+      label: 'Field Label',
+      displayValue: 'Read Only Value',
+      isEdit: true,
+      input: (inputProps) => (
+        <input type="text" {...inputProps} defaultValue="Editable Value" />
+      ),
+      error: 'There is something invalid about this field',
+      fieldId: undefined,
+    }}
+  >
+    {(args) => <Field {...args} />}
+  </Story>
+</Canvas>
+
+### Multiple fields display with borders between
+
+<Canvas>
+  <Story
+    name="Multiple Fields"
+    args={{
+      label: 'Field Label',
+      displayValue: 'Read Only Value',
+      input: (inputProps) => (
+        <input type="text" {...inputProps} defaultValue="Editable Value" />
+      ),
+      fieldId: undefined,
+    }}
+  >
+    {(args) =>
+      [1, 2, 3, 4].map((id) => (
+        <Field
+          {...args}
+          label={`${args.label} - ${id}`}
+          key={id}
+          displayValue={`${args.displayValue} - ${id}`}
+        />
+      ))
+    }
+  </Story>
+</Canvas>
+
+### The inner input can also be specified via a react children callback
+
+<Canvas>
+  <Story name="Editable With Children">
+    <Field label="Field Label" isEdit>
+      {(inputProps) => (
+        <input type="text" {...inputProps} defaultValue="Editable Value" />
+      )}
+    </Field>
+  </Story>
+</Canvas>

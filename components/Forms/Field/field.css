@@ -1,0 +1,75 @@
+@layer components {
+  .fui-field-row--is-view {
+    @apply tw-border-b tw-border-gray-300;
+  }
+
+  .fui-field-row--is-view:last-child {
+    @apply tw-border-transparent;
+  }
+
+  .fui-field-row__label {
+    @apply tw-truncate tw-uppercase tw-text-xs tw-font-medium tw-text-gray-500 tw-inline-block tw-pt-2;
+    letter-spacing: 0.15em;
+    flex: 0 0 25%;
+    min-width: 120px;
+  }
+
+  .fui-field-row__input {
+    @apply tw-truncate 
+      tw-transition-all 
+      tw-duration-200
+      tw-ease-out
+      tw-w-full
+      tw-bg-gray-300 
+      tw-shadow-none 
+      tw-block 
+      tw-rounded 
+      tw-border-transparent 
+      tw-border
+      tw-pt-1 
+      tw-pb-1 
+      tw-pr-3 
+      tw-pl-3;
+  }
+
+  .fui-field-row__input:hover {
+    @apply tw-bg-gray-400;
+  }
+
+  .fui-field-row__input:focus {
+    @apply tw-border-transparent tw-bg-white tw-outline-none;
+    box-shadow: 0 0 0 1px theme(colors.teal.500), 0 15px 15px -7.5px var(--color-shadow);
+  }
+
+  .fui-field-row__value {
+    @apply tw-leading-6 
+      tw-flex-1
+      tw-text-sm
+      tw-text-gray-900;
+  }
+
+  .fui-field-row--is-view .fui-field-row__value {
+    @apply tw-pt-1 
+    tw-pb-1 
+    tw-pr-3 
+    tw-pl-3;
+  }
+
+  /* Error States */
+  .fui-field-row--is-invalid .fui-field-row__input {
+    @apply tw-text-orange;
+  }
+
+  .fui-field-row--is-invalid .fui-field-row__input:not(:focus) {
+    @apply tw-bg-red-100;
+  }
+
+  .fui-field-row--is-invalid .fui-field-row__input:not(:focus):hover {
+    @apply tw-bg-red-200;
+  }
+
+  .fui-field-row--is-invalid .fui-field-row__input:focus {
+    box-shadow: 0 0 0 1px theme(colors.orange.default),
+      0 15px 15px -7.5px var(--color-shadow);
+  }
+}
