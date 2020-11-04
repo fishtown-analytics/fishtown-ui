@@ -1,6 +1,7 @@
-import { Meta, Props, Story, Preview, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, ArgsTable, Story, Preview, Canvas } from '@storybook/addon-docs/blocks';
 
 import { Field } from './Field';
+import { Input } from '../Input';
 
 <Meta title="Components/Forms/Field" component={Field} />
 
@@ -12,7 +13,7 @@ The input render prop includes inner props to handle styling (className) as well
 
 ## Props
 
-<Props of={Field} />
+<ArgsTable of={Field} />
 
 ## Examples
 
@@ -26,7 +27,7 @@ The input render prop includes inner props to handle styling (className) as well
       displayValue: 'Read Only Value',
       fieldId: undefined,
       input: (inputProps) => (
-        <input type="text" {...inputProps} defaultValue="Editable Value" />
+        <Input type="text" {...inputProps} defaultValue="Editable Value" />
       ),
     }}
   >
@@ -44,7 +45,7 @@ The input render prop includes inner props to handle styling (className) as well
       displayValue: 'Read Only Value',
       isEdit: true,
       input: (inputProps) => (
-        <input type="text" {...inputProps} defaultValue="Editable Value" />
+        <Input type="text" {...inputProps} defaultValue="Editable Value" />
       ),
       fieldId: undefined,
     }}
@@ -63,7 +64,7 @@ The input render prop includes inner props to handle styling (className) as well
       displayValue: 'Read Only Value',
       isEdit: true,
       input: (inputProps) => (
-        <input type="text" {...inputProps} defaultValue="Editable Value" />
+        <Input type="text" {...inputProps} defaultValue="Editable Value" />
       ),
       helpText: 'This is help text, to help you understand the field',
       fieldId: undefined,
@@ -83,7 +84,7 @@ The input render prop includes inner props to handle styling (className) as well
       displayValue: 'Read Only Value',
       isEdit: true,
       input: (inputProps) => (
-        <input type="text" {...inputProps} defaultValue="Editable Value" />
+        <Input type="text" {...inputProps} defaultValue="Editable Value" />
       ),
       error: 'There is something invalid about this field',
       fieldId: undefined,
@@ -102,7 +103,7 @@ The input render prop includes inner props to handle styling (className) as well
       label: 'Field Label',
       displayValue: 'Read Only Value',
       input: (inputProps) => (
-        <input type="text" {...inputProps} defaultValue="Editable Value" />
+        <Input type="text" {...inputProps} defaultValue="Editable Value" />
       ),
       fieldId: undefined,
     }}
@@ -126,7 +127,7 @@ The input render prop includes inner props to handle styling (className) as well
   <Story name="Editable With Children">
     <Field label="Field Label" isEdit>
       {(inputProps) => (
-        <input type="text" {...inputProps} defaultValue="Editable Value" />
+        <Input type="text" {...inputProps} defaultValue="Editable Value" />
       )}
     </Field>
   </Story>

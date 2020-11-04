@@ -20,7 +20,7 @@
       tw-duration-200
       tw-ease-out
       tw-w-full
-      tw-bg-gray-300 
+      tw-bg-gray-200 
       tw-shadow-none 
       tw-block 
       tw-rounded 
@@ -32,8 +32,16 @@
       tw-pl-3;
   }
 
-  .fui-field-row__input:hover {
-    @apply tw-bg-gray-400;
+  .fui-field-row__input:not(:focus):not(:disabled):hover {
+    @apply tw-bg-gray-300;
+  }
+
+  .fui-field-row__input:disabled {
+    @apply tw-cursor-not-allowed;
+  }
+
+  .fui-field-row__input:not(:focus):not(:disabled):hover::placeholder {
+    @apply tw-text-gray-800;
   }
 
   .fui-field-row__input:focus {

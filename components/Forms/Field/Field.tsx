@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 export interface FieldInputProps {
   id: string;
-  className: string;
   error?: React.ReactNode;
 }
 
@@ -58,7 +57,6 @@ export const Field: FC<FieldProps> = ({
   const hasChildren = isEdit && !input && !!children;
   const inputProps: FieldInputProps = {
     id: fieldId,
-    className: 'fui-field-row__input',
     error,
   };
 

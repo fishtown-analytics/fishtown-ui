@@ -1,0 +1,107 @@
+import { Meta, ArgsTable, Story, Preview, Canvas } from '@storybook/addon-docs/blocks';
+
+import { Input } from './Input';
+import { Field } from '../Field';
+
+<Meta title="Components/Forms/Input" component={Input} />
+
+# Input
+
+A basic form element, accepts any standard type, passes through any additional valid html props.
+
+## Props (any valid HTML Prop)
+
+<ArgsTable of={Input} />
+
+## Examples
+
+### Basic `Input`
+
+<Canvas>
+  <Story
+    name="Basic"
+    args={{
+      id: undefined,
+    }}
+  >
+    {(args) => <Input {...args} />}
+  </Story>
+</Canvas>
+
+### Usage with `Field`
+
+<Canvas>
+  <Story name="Field">
+    <Field fieldId="text-field" label="Text Field" isEdit>
+      {(innerProps) => <Input {...innerProps} placeholder="I'm a text field!" />}
+    </Field>
+  </Story>
+</Canvas>
+
+### Placeholder Input
+
+<Canvas>
+  <Story
+    name="Placeholder"
+    args={{
+      id: undefined,
+      placeholder: 'Enter some text...',
+    }}
+  >
+    {(args) => <Input {...args} />}
+  </Story>
+</Canvas>
+
+### Disabled Input
+
+<Canvas>
+  <Story
+    name="Disabled"
+    args={{
+      id: undefined,
+      placeholder: 'This input is disabled',
+      disabled: true,
+    }}
+  >
+    {(args) => <Input {...args} />}
+  </Story>
+</Canvas>
+
+### Input with value
+
+<Canvas>
+  <Story
+    name="Value"
+    args={{
+      id: undefined,
+      placeholder: 'Enter some text',
+      defaultValue: 'I have a value!',
+    }}
+  >
+    {(args) => <Input {...args} />}
+  </Story>
+</Canvas>
+
+### Extra Input types
+
+<Canvas>
+  <Story
+    name="Types"
+    args={{
+      types: ['password', 'number', 'email', 'hidden', 'search', 'tel'],
+    }}
+  >
+    {(args) =>
+      args.types.map((type) => (
+        <div key={type} className="tw-mt-2 tw-mb-2">
+          <Input
+            id={`${type}-input`}
+            type={type}
+            key={type}
+            placeholder={`${type} Input`}
+          />
+        </div>
+      ))
+    }
+  </Story>
+</Canvas>
