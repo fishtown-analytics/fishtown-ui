@@ -12,6 +12,6 @@
     }
 
     .fui-input-list-item__delete:hover {
-        @apply tw-fill-current tw-text-500
+        @apply tw-fill-current tw-text-gray-500
     }
 }
