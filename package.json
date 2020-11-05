@@ -10,7 +10,8 @@
     "deploy-storybook": "storybook-to-ghpages",
     "test": "jest",
     "test-watch": "jest --watch",
-    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx",
+    "build-component-index": "node ./scripts/generate-component-index"
   },
   "repository": {
     "type": "git",

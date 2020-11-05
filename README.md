@@ -31,7 +31,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ...fishtownUiTheme.theme.colors,
+        ...fishtownUiTheme.theme.extend.colors,
         'sextant-yellow': '#ffb600',
       },
     },
