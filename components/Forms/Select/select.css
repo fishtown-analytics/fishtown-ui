@@ -1,0 +1,64 @@
+.fui-select-container {
+  @apply tw-w-full;
+}
+
+.fui-select-container.fui-select--is-errored .fui-select__control {
+  @apply tw-border-red-500;
+}
+
+.fui-select-container.fui-select--is-errored .fui-select__control:hover,
+.fui-select-container.fui-select--is-errored .fui-select__control--is-focused {
+  @apply tw-border-red-500;
+}
+
+.fui-select-container .fui-select__control:hover {
+  @apply tw-border-teal-400;
+}
+.fui-select-container .fui-select__control--is-focused {
+  @apply tw-border-teal-400 tw-shadow-none;
+}
+
+.fui-select-container .fui-select__option {
+  @apply tw-flex tw-justify-between tw-text-sm;
+}
+
+.fui-select-container .fui-select__option .fui-icon {
+  @apply tw-text-white tw-mr-2 tw-text-sm;
+}
+
+.fui-select-container .fui-select__option--is-focused,
+.fui-select-container .fui-select__option:active {
+  @apply tw-text-gray-900 tw-bg-white;
+}
+
+.fui-select-container .fui-select__option--is-focused .fui-icon,
+.fui-select-container .fui-select__option:active .fui-icon {
+  @apply tw-text-teal-500;
+}
+
+.fui-select-container .fui-select__option--is-selected {
+  @apply tw-text-gray-900 tw-bg-white tw-font-semibold;
+}
+.fui-select-container .fui-select__option--is-selected .fui-icon {
+  @apply tw-text-teal-600;
+}
+
+.fui-select-container .fui-select__grouplabel {
+  @apply tw-flex tw-align-middle tw-justify-between;
+}
+
+.fui-select__indicator-separator {
+  @apply tw-hidden;
+}
+
+.fui-select__control--is-focused .fui-select__indicator,
+.fui-select__control:hover .fui-select__indicator {
+  @apply tw-text-teal-500;
+}
+
+/* Special handling for selects inside tables and a bit of future proofing for an eventual table component migration */
+.dbt-cloud-table__row .fui-select-container,
+.fui-table__row .fui-select-container {
+  @apply tw-inline-block tw-ml-px;
+  width: 99%;
+}
