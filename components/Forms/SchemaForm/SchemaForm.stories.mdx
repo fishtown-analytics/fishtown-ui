@@ -1,0 +1,289 @@
+import { useCallback } from 'react';
+import {
+  Meta,
+  ArgsTable,
+  Story,
+  Preview,
+  Canvas,
+  Source,
+} from '@storybook/addon-docs/blocks';
+
+import { useForm } from 'react-hook-form';
+
+import { Button } from '../../Button';
+
+import { SchemaForm } from './SchemaForm';
+import { useErrorMessages } from './hooks';
+
+import {
+  basicSchema,
+  dependsSchema,
+  validationSchema,
+  realWorldSchema,
+  externalConditionalSchema,
+  decorators,
+  ExampleWrapper,
+} from './schema-form-data';
+
+<Meta
+  title="Components/Forms/SchemaForm"
+  component={SchemaForm}
+  decorators={decorators}
+  parameters={{ docs: { source: { type: 'code' } } }}
+/>
+
+# SchemaForm
+
+A SchemaForm is a form generator for basic forms, described by JSON. Given a JSON configuration describing
+form fields metadata and values, `SchemaForm` will construct a `react-hook-form` based form with onSubmit handling, conditional fields, and validation.
+
+### Schemas are simple JSON structures
+
+A form schema consists of two fields, an object of Fields and an optional field order array, which will provide context to the generator about the UI order of the fields.
+
+<Source
+  code={`export interface FormSchema {
+  fields: Record<string, SchemaField>;
+  field_order: string[];
+}`}
+/>
+
+Fields consist of metadata and a value, metadata is the provided configuration for the field.
+
+<Source
+  code={`export interface SchemaField {
+  metadata: {
+    field_type: 'text' | 'number' | 'select';
+    label: string;
+    description: string;
+    encrypt?: boolean;
+    validation: SchemaValidation;
+    depends_on: Record<string, string | number>;
+  };
+  value: string | number;
+}`}
+/>
+
+### Example FormSchema
+
+<Source
+  code={`export const basicSchema: FormSchema = {
+  fields: {
+    one: {
+      metadata: {
+        label: 'First Field',
+        field_type: 'text',
+        description: 'This is the first field',
+        validation: {},
+        depends_on: {},
+      },
+      value: 1,
+    },
+    two: {
+      metadata: {
+        label: 'Third Field',
+        field_type: 'text',
+        description: 'This is the third field',
+        validation: {},
+        depends_on: {},
+      },
+      value: 2,
+    },
+    three: {
+      metadata: {
+        label: 'Second Field',
+        field_type: 'text',
+        description: 'This is the second field',
+        validation: {},
+        depends_on: {},
+      },
+      value: 3,
+    },
+    four: {
+      metadata: {
+        label: 'Select Field',
+        field_type: 'select',
+        options: [
+          { label: 'Value 1', value: 1 },
+          { label: 'Value 2', value: 2 },
+        ],
+        description: 'This is a select field',
+        validation: {},
+        depends_on: {},
+      },
+      value: 3,
+    },
+  },
+  field_order: ['one', 'three', 'two', 'four'],
+};
+`}
+/>
+
+## Props
+
+<ArgsTable of={SchemaForm} />
+
+## Examples
+
+#### Examples Note
+
+These code examples use a storybook decorator to provide a wrapper for a form/button/calling out to react-hook-form for methods. A
+proper implementation of `<FormSchema />` would be wrapped in a react-hook-form driven component. The ExampleWrapper provides the methods back to `FormSchema` as a react children callback
+but this isn't necessary in normal implementations.
+
+Our examples also use external schema's and storybook does not load those directly they can be found here: [Example Schemas](https://github.com/fishtown-analytics/fishtown-ui/tree/master/components/Forms/SchemaForm/schema-form-data.tsx)
+
+#### ExampleWrapper
+
+<Source
+  code={`export const ExampleWrapper = ({ isEdit, children }) => {
+  const { handleSubmit, getValues, errors, register, formState, control } = useForm();
+  return (
+    <form>
+      {children({ errors, register, getValues, control, isEdit, formState })}
+      {isEdit && (
+        <Button onClick={handleSubmit((values) => console.log(values))}>
+          Validate
+        </Button>
+      )}
+    </form>
+  );
+};`}
+/>
+
+### Basic read-only `SchemaForm`
+
+<Canvas>
+  <Story
+    name="Basic"
+    args={{
+      isEdit: false,
+    }}
+  >
+    {({ register, getValues, errors, formState, isEdit, control }) => {
+      return (
+        <SchemaForm
+          schema={basicSchema}
+          isEdit={isEdit}
+          register={register}
+          getValues={getValues}
+          errors={useErrorMessages(errors, formState)}
+          control={control}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Basic edit mode `SchemaForm`
+
+<Canvas>
+  <Story
+    name="Editable"
+    args={{
+      isEdit: true,
+    }}
+  >
+    {({ register, getValues, errors, formState, isEdit, control }) => {
+      return (
+        <SchemaForm
+          schema={basicSchema}
+          isEdit={isEdit}
+          register={register}
+          getValues={getValues}
+          errors={useErrorMessages(errors, formState)}
+          control={control}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### `SchemaForm` with validation
+
+The `useErrorMessages` custom hook provides error message memoization, handling, and a hook for customizing error messages.
+
+<Canvas>
+  <Story name="Validation" args={{ isEdit: true }}>
+    {({ register, getValues, errors, formState, isEdit, control }) => {
+      return (
+        <SchemaForm
+          schema={validationSchema}
+          isEdit={isEdit}
+          register={register}
+          getValues={getValues}
+          errors={useErrorMessages(errors, formState)}
+          control={control}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### `SchemaForm` with conditional fields
+
+`depends_on` metadata on fields provides a way to conditionally show/hide fields on the fly.
+
+<Canvas>
+  <Story name="Conditional" args={{ isEdit: true }}>
+    {({ register, getValues, errors, formState, isEdit, control }) => {
+      return (
+        <SchemaForm
+          schema={dependsSchema}
+          isEdit={isEdit}
+          register={register}
+          getValues={getValues}
+          errors={useErrorMessages(errors, formState)}
+          control={control}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### `SchemaForm` with non-field based conditions
+
+`getValues` can be decorated with additional properties to allow conditional fields to be based on external factors
+
+<Canvas>
+  <Story name="External Conditionals" args={{ isEdit: true, showMore: false }}>
+    {({ register, getValues, errors, formState, control, isEdit, extraArgs }) => {
+      const provideValues = useCallback(
+        () => ({
+          ...getValues(),
+          ...extraArgs,
+        }),
+        [getValues, extraArgs]
+      );
+      return (
+        <SchemaForm
+          schema={externalConditionalSchema}
+          isEdit={isEdit}
+          register={register}
+          getValues={provideValues}
+          errors={useErrorMessages(errors, formState)}
+          control={control}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### "Real World" Example
+
+<Canvas>
+  <Story name="Real World" args={{ isEdit: true }}>
+    {({ register, getValues, errors, isEdit, formState, control }) => {
+      return (
+        <SchemaForm
+          schema={realWorldSchema}
+          isEdit={isEdit}
+          register={register}
+          getValues={getValues}
+          errors={useErrorMessages(errors, formState)}
+          control={control}
+        />
+      );
+    }}
+  </Story>
+</Canvas>

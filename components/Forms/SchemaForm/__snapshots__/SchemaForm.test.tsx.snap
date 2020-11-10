@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component SchemaForm should render form fields based on a schema in edit mode 1`] = `
+<form>
+  <div
+    class="fui-field-row tw-flex tw-flex-row tw-pt-2 tw-pb-2 fui-field-row--is-edit"
+    data-testid="test1"
+  >
+    <div
+      class="fui-field-row__label"
+    >
+      <label
+        for="test1"
+      >
+        Test 1
+      </label>
+    </div>
+    <div
+      class="fui-field-row__value"
+    >
+      <input
+        class="fui-field-row__input"
+        depends_on="[object Object]"
+        description="Test Description 1"
+        field_type="text"
+        id="test1"
+        label="Test 1"
+        name="test1"
+        type="text"
+        validation="[object Object]"
+        value="test one"
+      />
+      <p
+        class="tw-text-xs tw-text-gray-600 tw-italic tw-mt-1 tw-mb-1"
+      >
+        Test Description 1
+      </p>
+    </div>
+  </div>
+  <div
+    class="fui-field-row tw-flex tw-flex-row tw-pt-2 tw-pb-2 fui-field-row--is-edit"
+    data-testid="test2"
+  >
+    <div
+      class="fui-field-row__label"
+    >
+      <label
+        for="test2"
+      >
+        Test 2
+      </label>
+    </div>
+    <div
+      class="fui-field-row__value"
+    >
+      <input
+        class="fui-field-row__input"
+        depends_on="[object Object]"
+        description="Test Description 2"
+        field_type="text"
+        id="test2"
+        label="Test 2"
+        name="test2"
+        type="text"
+        validation="[object Object]"
+        value="test two"
+      />
+      <p
+        class="tw-text-xs tw-text-gray-600 tw-italic tw-mt-1 tw-mb-1"
+      >
+        Test Description 2
+      </p>
+    </div>
+  </div>
+  <input
+    class="fui-field-row__input"
+    description="Test Description Hidden"
+    field_type="hidden"
+    id="testhidden"
+    label="Test hidden"
+    name="testhidden"
+    type="hidden"
+    validation="[object Object]"
+    value="test hidden"
+  />
+</form>
+`;
+
+exports[`Component SchemaForm should render form fields based on a schema in view mode 1`] = `
+<form>
+  <div
+    class="fui-field-row tw-flex tw-flex-row tw-pt-2 tw-pb-2 fui-field-row--is-view"
+    data-testid="test1"
+  >
+    <div
+      class="fui-field-row__label"
+    >
+      <label
+        for="test1"
+      >
+        Test 1
+      </label>
+    </div>
+    <div
+      class="fui-field-row__value"
+    >
+      test one
+    </div>
+  </div>
+  <div
+    class="fui-field-row tw-flex tw-flex-row tw-pt-2 tw-pb-2 fui-field-row--is-view"
+    data-testid="test2"
+  >
+    <div
+      class="fui-field-row__label"
+    >
+      <label
+        for="test2"
+      >
+        Test 2
+      </label>
+    </div>
+    <div
+      class="fui-field-row__value"
+    >
+      test two
+    </div>
+  </div>
+  <input
+    class="fui-field-row__input"
+    description="Test Description Hidden"
+    field_type="hidden"
+    id="testhidden"
+    label="Test hidden"
+    name="testhidden"
+    type="hidden"
+    validation="[object Object]"
+    value="test hidden"
+  />
+  <div
+    class="fui-field-row tw-flex tw-flex-row tw-pt-2 tw-pb-2 fui-field-row--is-view"
+    data-testid="testselect"
+  >
+    <div
+      class="fui-field-row__label"
+    >
+      <label
+        for="testselect"
+      >
+        Test Select
+      </label>
+    </div>
+    <div
+      class="fui-field-row__value"
+    >
+      Option 1
+    </div>
+  </div>
+</form>
+`;

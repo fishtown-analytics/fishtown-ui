@@ -61,7 +61,7 @@ export const Field: FC<FieldProps> = ({
   };
 
   return (
-    <div className={classNames}>
+    <div className={classNames} data-testid={fieldId}>
       <div className="fui-field-row__label">
         <label htmlFor={fieldId}>{label}</label>
       </div>
