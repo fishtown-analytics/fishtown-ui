@@ -52,7 +52,7 @@ export const Field: FC<FieldProps> = ({
       'fui-field-row--is-invalid': error,
     }
   );
-  const hasHelpText = isEdit && helpText;
+
   const hasInput = isEdit && !!input;
   const hasChildren = isEdit && !input && !!children;
   const inputProps: FieldInputProps = {
@@ -68,8 +68,8 @@ export const Field: FC<FieldProps> = ({
       <div className="fui-field-row__value">
         {hasInput && input && input(inputProps)}
         {!hasInput && hasChildren && children && children(inputProps)}
-        {hasHelpText && (
-          <p className="tw-text-xs tw-text-gray-600 tw-italic tw-mt-1 tw-mb-1">
+        {isEdit && (
+          <p className="tw-text-xs tw-text-gray-600 tw-italic tw-mt-1 tw-mb-1 tw-h-6">
             {helpText}
           </p>
         )}
