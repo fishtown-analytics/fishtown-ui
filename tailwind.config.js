@@ -41,4 +41,8 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
+  corePlugins: {
+    // https://github.com/fishtown-analytics/dbt-cloud/issues/1948
+    animation: false,
+  }
 };
