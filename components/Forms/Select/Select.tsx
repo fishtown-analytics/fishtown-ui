@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
-import ReactSelect, { SelectProps as ReactSelectProps, components } from 'react-select';
+import ReactSelect, { Props as ReactSelectProps, components } from 'react-select';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuid } from 'uuid';
 import cx from 'classnames';
@@ -13,7 +13,7 @@ export interface SelectOption {
   options?: SelectOption[];
 }
 
-export interface SelectProps extends ReactSelectProps {
+export interface SelectProps extends ReactSelectProps<SelectOption> {
   id?: string;
   autoFocus?: boolean;
   className?: string;
