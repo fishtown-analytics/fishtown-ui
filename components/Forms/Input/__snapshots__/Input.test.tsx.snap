@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component Input should pass through any supported html input props 1`] = `
+<input
+  aria-label="test"
+  class="fui-field-row__input"
+  data-test="test"
+  disabled=""
+  id="test"
+  name="test"
+  type="text"
+/>
+`;
+
+exports[`Component Input should render an input defaulted to text 1`] = `
+<input
+  class="fui-field-row__input"
+  id="test"
+  type="text"
+/>
+`;

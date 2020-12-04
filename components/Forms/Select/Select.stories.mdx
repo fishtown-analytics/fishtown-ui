@@ -1,0 +1,121 @@
+import {
+  Meta,
+  ArgsTable,
+  Story,
+  Preview,
+  Canvas,
+  Source,
+} from '@storybook/addon-docs/blocks';
+
+import { Field } from '../Field';
+import { Select, SelectProps } from './Select';
+import {
+  commonProps,
+  options,
+  descriptionOptions,
+  groupedOptions,
+} from './select-story-data';
+
+<Meta title="Components/Forms/Select" component={Select} />
+
+# Select
+
+A single item select input built on top of [React Select](https://react-select.com/home). Allows for searching, grouping (with labels), and descriptions on options.
+
+### SelectOption
+
+Options are passed into `Select` as an array of `SelectOption` which is defined as:
+
+<Source
+  code={`interface SelectOption {
+  label: string;
+  value: string;
+  meta?: string;
+  options?: SelectOption[];
+}`}
+/>
+
+#### Note about react-hook-form usage
+
+Unfortunately, react-select does not currently expose an inner ref to an underlying input for use with [react-hook-form](https://react-hook-form.com/). This can be solved through use of their `<Controller />` component.
+
+<Source
+  code={`
+    <Controller
+      as={Select}
+      name="example"
+      control={control}
+      defaultValue={{ label: 'Example', value: 'example' }}
+    />
+  `}
+/>
+
+## Props
+
+<ArgsTable of={Select} />
+
+## Examples
+
+### Basic `Select`
+
+<Canvas>
+  <Story name="Basic" args={commonProps} height="20rem">
+    {(args) => <Select {...args} />}
+  </Story>
+</Canvas>
+
+### Usage with `Field`
+
+<Canvas>
+  <Story name="Field" height="20rem">
+    <Field fieldId="select-field" label="Select Field" isEdit>
+      {(innerProps) => (
+        <Select {...innerProps} {...commonProps} placeholder="I'm a select field!" />
+      )}
+    </Field>
+  </Story>
+</Canvas>
+
+### Option descriptions
+
+<Canvas>
+  <Story
+    name="Option Descriptions"
+    args={{ ...commonProps, options: descriptionOptions }}
+    height="20rem"
+  >
+    {(args) => <Select {...args} />}
+  </Story>
+</Canvas>
+
+### Option Groupings
+
+<Canvas>
+  <Story
+    name="Option Groupings"
+    args={{ ...commonProps, options: groupedOptions }}
+    height="20rem"
+  >
+    {(args) => <Select {...args} />}
+  </Story>
+</Canvas>
+
+### Disabled `Select`
+
+<Canvas>
+  <Story name="Disabled" args={{ ...commonProps, isDisabled: true }}>
+    {(args) => <Select {...args} />}
+  </Story>
+</Canvas>
+
+### `Select` with an error
+
+<Canvas>
+  <Story
+    name="Errors"
+    args={{ ...commonProps, error: 'There was an error with this field' }}
+    height="20rem"
+  >
+    {(args) => <Select {...args} />}
+  </Story>
+</Canvas>
