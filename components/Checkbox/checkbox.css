@@ -12,7 +12,7 @@
   }
 
   .fui-checkbox_checkbox {
-    @apply tw-flex tw-content-center tw-justify-center tw-w-4 tw-h-4 tw-mr-2 tw-border-gray-500 tw-border tw-border-solid tw-rounded-sm tw-text-white tw-cursor-pointer;
+    @apply tw-flex tw-content-center tw-justify-center tw-w-4 tw-h-4 tw-mr-2 tw-border-gray-400 tw-border tw-border-solid tw-rounded-sm tw-text-white tw-cursor-pointer;
   }
 
   .fui-checkbox_checkbox svg {
@@ -24,7 +24,7 @@
   }
 
   .fui-checkbox--is-disabled .fui-checkbox_checkbox {
-    @apply tw-border-transparent tw-bg-gray-500 tw-cursor-default;
+    @apply tw-border-transparent tw-bg-gray-400 tw-cursor-default;
   }
 
   .fui-checkbox--is-disabled .fui-checkbox_label {
@@ -32,6 +32,6 @@
   }
 
   .fui-checkbox--is-disabled:not(.fui-checkbox--is-checked) .fui-checkbox_checkbox {
-    @apply tw-border-gray-400 tw-bg-transparent;
+    @apply tw-border-gray-200 tw-bg-transparent;
   }
 }

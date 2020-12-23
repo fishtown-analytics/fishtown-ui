@@ -42,7 +42,7 @@ module.exports = {
 We [prefix all Tailwind classes](https://tailwindcss.com/docs/configuration#prefix) with `tw-` to avoid conflicts with existing styles.
 
 ```html
-<nav class="tw-bg-dbt-orange tw-p-6">
+<nav class="tw-bg-orange tw-p-6">
   <div class="tw-text-white tw-mr-6">
     <span class="tw-font-semibold tw-text-xl tw-tracking-tight">
       Fishtown UI

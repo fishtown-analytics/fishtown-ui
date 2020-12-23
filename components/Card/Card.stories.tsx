@@ -3,6 +3,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Card, CardProps } from './Card';
+import { InputList } from '../InputList/InputList';
 
 export default {
   title: 'Components/Card',
@@ -14,6 +15,5 @@ Template.argTypes = {};
 
 export const Basic = Template.bind({});
 Basic.args = {
-  // need to add more children for storybook example
-  // children: <Button />,
+  children: <InputList values={['This is a card', 'with an input list on it']}/>,
 };

@@ -1,0 +1,17 @@
+@layer components {
+    .fui-input-list-item {
+        @apply tw-pb-2;
+    }
+
+    .fui-input-list-item__field {
+        @apply tw-pl-2 tw-bg-gray-lighter tw-rounded tw-h-6 tw-w-56
+    }
+
+    .fui-input-list-item__delete {
+        @apply tw-p-2 tw-fill-current tw-text-gray-dark
+    }
+
+    .fui-input-list-item__delete:hover {
+        @apply tw-fill-current tw-text-gray-500
+    }
+}
