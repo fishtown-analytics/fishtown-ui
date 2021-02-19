@@ -1,4 +1,4 @@
-const { colors } = require('tailwindcss/defaultTheme');
+const { colors, fontSize } = require('./old-default-theme');
 
 module.exports = {
   prefix: 'tw-',
@@ -6,12 +6,13 @@ module.exports = {
     extend: {
       colors: {
         ...colors,
+        current: 'currentColor',
         transparent: {
-          default: 'var(--color-transparent)',
+          DEFAULT: 'var(--color-transparent)',
         },
         white: {
           ...colors.white,
-          default: 'var(--color-white)',
+          DEFAULT: 'var(--color-white)',
         },
         teal: {
           ...colors.teal,
@@ -20,7 +21,7 @@ module.exports = {
         },
         orange: {
           ...colors.orange,
-          default: 'var(--color-orange-500)',
+          DEFAULT: 'var(--color-orange-500)',
         },
         gray: {
           ...colors.gray,
@@ -31,14 +32,10 @@ module.exports = {
         },
         red: {
           ...colors.red,
-          default: 'var(--color-red)',
+          DEFAULT: 'var(--color-red)',
         },
       },
+      fontSize,
     },
-  },
-  // https://tailwindcss.com/docs/upcoming-changes
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
   },
 };
