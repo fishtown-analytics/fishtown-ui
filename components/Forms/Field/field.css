@@ -78,7 +78,7 @@
   }
 
   .fui-field-row--is-invalid .fui-field-row__input:focus {
-    box-shadow: 0 0 0 1px theme(colors.orange.default),
+    box-shadow: 0 0 0 1px theme(colors.orange.DEFAULT),
       0 15px 15px -7.5px var(--color-shadow);
   }
 }

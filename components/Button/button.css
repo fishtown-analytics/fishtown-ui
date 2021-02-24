@@ -10,13 +10,13 @@
 }
 
 .fui-button-small {
-  @apply py-1 px-2;
+  @apply tw-py-1 tw-px-2;
 }
 
 .fui-button-medium {
-  @apply py-2 px-4;
+  @apply tw-py-2 tw-px-4;
 }
 
 .fui-button-large {
-  @apply py-4 px-8;
+  @apply tw-py-4 tw-px-8;
 }
