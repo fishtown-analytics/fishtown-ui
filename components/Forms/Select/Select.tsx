@@ -8,7 +8,7 @@ import { Icon } from '../../Icon';
 
 export interface SelectOption {
   label: string;
-  value?: string;
+  value?: any;
   meta?: string;
   options?: SelectOption[];
 }
