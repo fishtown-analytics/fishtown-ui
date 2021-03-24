@@ -70,3 +70,19 @@ test('a grouping meta label is displayed if provided', async () => {
   expect(queryByText('Group Test')).toBeDefined();
   expect(queryByText('Test Meta Label')).toBeDefined();
 });
+
+test('section names are displayed if provided', async () => {
+  const groupedOptions: SelectOption[] = [{ label: 'Group Test', sectionHeader: 'First Header', options }, { label: 'Group Test 2', sectionHeader: 'Second Header', options }];
+  const { getByText, queryByText } = render(
+    <Select
+      options={groupedOptions}
+      onChange={voidChange}
+      groupingMetaLabel="Test Meta Label"
+    />
+  );
+  await selectEvent.openMenu(getByText('Select...'));
+  expect(queryByText('Group Test')).toBeDefined();
+  expect(queryByText('First Header')).toBeDefined();
+  expect(queryByText('Group Test 2')).toBeDefined();
+  expect(queryByText('Second Header')).toBeDefined();
+});
