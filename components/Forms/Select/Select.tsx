@@ -27,8 +27,7 @@ export interface SelectProps extends ReactSelectProps<SelectOption> {
   onChange?(value: SelectOption): void;
 }
 
-const Option: FC = (props: any) => {
-  return (
+const Option: FC = (props: any) => (
   <components.Option {...props}>
     <div className="fui-select__option_value">
       <Icon icon={faCheck} className="tw-inline" />
@@ -38,7 +37,7 @@ const Option: FC = (props: any) => {
       <div className="fui-select__option_meta">{props.data.meta}</div>
     )}
   </components.Option>
-)};
+);
 
 export const Select: FC<SelectProps> = (props: SelectProps): React.ReactElement => {
   const { groupingMetaLabel, value } = props;
