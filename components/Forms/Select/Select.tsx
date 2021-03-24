@@ -42,10 +42,9 @@ const Option: FC = (props: any) => (
 export const Select: FC<SelectProps> = (props: SelectProps): React.ReactElement => {
   const { groupingMetaLabel, value } = props;
   const [localValue, setValue] = useState(value);
-  const classNames = cx(
-    'fui-select-container',
-    props.className,
-    { 'fui-select--is-errored': !!props.error, });
+  const classNames = cx('fui-select-container', props.className, {
+    'fui-select--is-errored': !!props.error,
+  });
   const innerSelectProps = { 'aria-labelledby': props.id, ...props };
   useEffect(() => {
     setValue(value);
