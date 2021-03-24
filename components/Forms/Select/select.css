@@ -47,13 +47,9 @@
   @apply tw-flex tw-align-middle tw-justify-between;
 }
 
-.fui-select-container.fui-select--columns .fui-select__grouplabel {
-  @apply tw-flex tw-align-middle tw-justify-between;
-}
-
-.fui-select-container .fui-select__grouplabel_sectionheader {
-  color: red;
-  font-size: 20px;
+.fui-select-container .fui-select__section-header {
+  font-size: 15px;
+  text-transform: none;
 }
 
 .fui-select__indicator-separator {
