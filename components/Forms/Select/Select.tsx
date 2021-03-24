@@ -6,8 +6,14 @@ import cx from 'classnames';
 
 import { Icon } from '../../Icon';
 
+enum StyleMode {
+  DEFAULT = 0,
+  COLUMNS
+}
+
 export interface SelectOption {
   label: string;
+  sectionName?: string;
   value?: any;
   meta?: string;
   options?: SelectOption[];
@@ -24,26 +30,31 @@ export interface SelectProps extends ReactSelectProps<SelectOption> {
   value?: SelectOption | null;
   portal?: boolean;
   onChange?(value: SelectOption): void;
+  styleMode?: StyleMode;
 }
 
-const Option: FC = (props: any) => (
+const Option: FC = (props: any) => {
+  const shouldUseCheckMark = props.styleMode !== StyleMode.COLUMNS;
+  return(
   <components.Option {...props}>
     <div className="fui-select__option_value">
-      <Icon icon={faCheck} className="tw-inline" />
+      {shouldUseCheckMark && <Icon icon={faCheck} className="tw-inline" />}
       {props.data.label}
     </div>
     {props.data.meta && (
       <div className="fui-select__option_meta">{props.data.meta}</div>
     )}
   </components.Option>
-);
+)};
 
 export const Select: FC<SelectProps> = (props: SelectProps): React.ReactElement => {
-  const { groupingMetaLabel, value } = props;
+  const { groupingMetaLabel, value, styleMode } = props;
   const [localValue, setValue] = useState(value);
-  const classNames = cx('fui-select-container', props.className, {
-    'fui-select--is-errored': !!props.error,
-  });
+  const classNames = cx(
+    'fui-select-container',
+    props.className,
+    { 'fui-select--is-errored': !!props.error, },
+    { 'fui-select--columns' : styleMode == StyleMode.DEFAULT, });
   const innerSelectProps = { 'aria-labelledby': props.id, ...props };
   useEffect(() => {
     setValue(value);
@@ -61,12 +72,15 @@ export const Select: FC<SelectProps> = (props: SelectProps): React.ReactElement 
   // Used if options are an array of groupings
   const formatGroupLabel = useCallback(
     (data): React.ReactNode => (
-      <div className="fui-select__grouplabel">
+      <>
+      {data.sectionName && <div className="fui-select__sectionname">{data.sectionName}</div>}
+      <div className={"fui-select__grouplabel"}>
         <div className="fui-select__grouplabel_title">{data.label}</div>
         <div className="fui-select__grouplabel_meta">
           {groupingMetaLabel || (data.options && data.options.length)}
         </div>
       </div>
+      </>
     ),
     [groupingMetaLabel]
   );
@@ -92,4 +106,7 @@ Select.defaultProps = {
   options: [],
   value: null,
   portal: false,
+  styleMode: StyleMode.DEFAULT,
 };
+
+Select.StyleMode = StyleMode;
