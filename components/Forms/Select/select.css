@@ -48,7 +48,7 @@
 }
 
 .fui-select-container .fui-select__section-header {
-  font-size: 15px;
+  @apply tw-text-lg;
   text-transform: none;
 }
 
