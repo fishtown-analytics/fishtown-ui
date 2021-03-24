@@ -8,7 +8,8 @@ import { Icon } from '../../Icon';
 
 export interface SelectOption {
   label: string;
-  value?: string;
+  sectionHeader?: string;
+  value?: any;
   meta?: string;
   options?: SelectOption[];
 }
@@ -61,12 +62,15 @@ export const Select: FC<SelectProps> = (props: SelectProps): React.ReactElement 
   // Used if options are an array of groupings
   const formatGroupLabel = useCallback(
     (data): React.ReactNode => (
-      <div className="fui-select__grouplabel">
+      <>
+      {data.sectionHeader && <div className="fui-select__section-header">{data.sectionHeader}</div>}
+      <div className={"fui-select__grouplabel"}>
         <div className="fui-select__grouplabel_title">{data.label}</div>
         <div className="fui-select__grouplabel_meta">
           {groupingMetaLabel || (data.options && data.options.length)}
         </div>
       </div>
+      </>
     ),
     [groupingMetaLabel]
   );
