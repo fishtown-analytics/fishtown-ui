@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 export interface ButtonProps {
-  variant?: 'basic';
+  variant?: string;
   size?: 'small' | 'medium' | 'large';
-  isDisabled?: false;
-  title?: '';
-  classNames?: '';
-  onClick?: () => void;
+  isDisabled?: boolean;
+  title?: string;
+  classNames?: string;
+  onClick?(): any;
 }
 
 const rootClassName = 'fui-button';
