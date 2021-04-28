@@ -5,7 +5,7 @@ export interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
   isDisabled?: boolean;
   title?: string;
-  classNames?: string;
+  className?: string;
   onClick?(): any;
 }
 
@@ -16,7 +16,7 @@ export const Button: React.FC<ButtonProps> = ({
   size = 'medium',
   isDisabled,
   title,
-  classNames,
+  className,
   children,
   ...props
 }) => {
@@ -26,7 +26,7 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={isDisabled}
       type="button"
       className={`${rootClassName}-${size} ${rootClassName}-${variant} ${
-        classNames ? ` ${classNames}` : ''
+        className ? ` ${className}` : ''
       }`}
       {...props}
     >
