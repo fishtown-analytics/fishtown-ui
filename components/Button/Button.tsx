@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 export interface ButtonProps {
-  variant?: 'basic';
+  variant?: string;
   size?: 'small' | 'medium' | 'large';
-  isDisabled?: false;
-  title?: '';
-  classNames?: '';
-  onClick?: () => void;
+  isDisabled?: boolean;
+  title?: string;
+  className?: string;
+  onClick?(): any;
 }
 
 const rootClassName = 'fui-button';
@@ -16,7 +16,7 @@ export const Button: React.FC<ButtonProps> = ({
   size = 'medium',
   isDisabled,
   title,
-  classNames,
+  className,
   children,
   ...props
 }) => {
@@ -26,7 +26,7 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={isDisabled}
       type="button"
       className={`${rootClassName}-${size} ${rootClassName}-${variant} ${
-        classNames ? ` ${classNames}` : ''
+        className ? ` ${className}` : ''
       }`}
       {...props}
     >
