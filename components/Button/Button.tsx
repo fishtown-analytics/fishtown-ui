@@ -9,7 +9,7 @@ export interface ButtonProps {
   onClick?(): any;
 }
 
-const rootClassName = 'fui-button';
+const ROOT_CLASS_NAME = 'fui-button';
 
 export const Button: React.FC<ButtonProps> = ({
   variant = 'basic',
@@ -25,7 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
       title={title}
       disabled={isDisabled}
       type="button"
-      className={`${rootClassName}-${size} ${rootClassName}-${variant} ${
+      className={`${ROOT_CLASS_NAME}-${size} ${ROOT_CLASS_NAME}-${variant} ${
         className ? ` ${className}` : ''
       }`}
       {...props}

@@ -85,7 +85,7 @@ Changing the `from` in `package-lock.json` specifies how you're naming this comm
 
 ## Contributing
 
-Read our [contributing guide](/story/docs-contributing--page) (in Storybook)
+Read our [contributing guide](https://ui.fishtownanalytics.com/?path=/docs/docs-contributing--page) (in Storybook)
 
 ## Roadmap
 

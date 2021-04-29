@@ -7,6 +7,10 @@
   .fui-button-basic:hover {
     @apply tw-bg-teal-700;
   }
+
+  .fui-button-basic:disabled {
+    @apply tw-bg-gray-500 tw-cursor-not-allowed;
+  }
 }
 
 .fui-button-small {
