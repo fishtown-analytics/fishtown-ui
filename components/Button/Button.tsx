@@ -1,4 +1,5 @@
 import * as React from 'react';
+import cx from 'classnames';
 
 export interface ButtonProps {
   variant?: string;
@@ -9,8 +10,6 @@ export interface ButtonProps {
   onClick?(): any;
 }
 
-const ROOT_CLASS_NAME = 'fui-button';
-
 export const Button: React.FC<ButtonProps> = ({
   variant = 'basic',
   size = 'medium',
@@ -20,14 +19,42 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   ...props
 }) => {
+  const isSmall = size === 'small';
+  const isMedium = size === 'medium';
+  const isLarge = size === 'large';
+  const classNames = cx(
+    {
+      'tw-py-1': isSmall,
+      'tw-px-2': isSmall,
+    },
+    {
+      'tw-py-2': isMedium,
+      'tw-px-4': isMedium,
+    },
+    {
+      'tw-py-4': isLarge,
+      'tw-px-8': isLarge,
+    },
+    'tw-bg-teal-500',
+    'tw-text-white',
+    'tw-transition-colors',
+    'tw-duration-200',
+    'tw-font-bold',
+    'tw-rounded',
+    'tw-select-none',
+    // Stateful styles
+    'hover:tw-bg-teal-700',
+    'disabled:tw-bg-gray-500',
+    'disabled:tw-cursor-not-allowed',
+    className,
+  );
+
   return (
     <button
       title={title}
       disabled={isDisabled}
       type="button"
-      className={`${ROOT_CLASS_NAME}-${size} ${ROOT_CLASS_NAME}-${variant} ${
-        className ? ` ${className}` : ''
-      }`}
+      className={classNames}
       {...props}
     >
       {children}
