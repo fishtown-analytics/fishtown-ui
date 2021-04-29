@@ -74,7 +74,7 @@ const LogInButton: React.FC = () => {
 export default LogInButton;
 ```
 
-## <a name="updating-fui-node">Updating Fishtown UI node module</a>
+## <a name="updating-fui-node"></a>Updating Fishtown UI node module
 
 If you are in a repo and having trouble updating from a tag to another:
 

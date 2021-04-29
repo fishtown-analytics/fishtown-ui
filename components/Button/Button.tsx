@@ -2,7 +2,6 @@ import * as React from 'react';
 import cx from 'classnames';
 
 export interface ButtonProps {
-  variant?: string;
   size?: 'small' | 'medium' | 'large';
   isDisabled?: boolean;
   title?: string;
@@ -11,7 +10,6 @@ export interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = ({
-  variant = 'basic',
   size = 'medium',
   isDisabled,
   title,
