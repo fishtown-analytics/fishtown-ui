@@ -2,6 +2,12 @@ const { colors, fontSize } = require('./old-default-theme');
 
 module.exports = {
   prefix: 'tw-',
+  variants: {
+    extend: {
+      backgroundColor: ['disabled'],
+      opacity: ['disabled'],
+    }
+  },
   theme: {
     extend: {
       colors: {
