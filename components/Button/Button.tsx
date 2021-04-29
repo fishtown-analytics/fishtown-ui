@@ -24,16 +24,9 @@ export const Button: React.FC<ButtonProps> = ({
   const isLarge = size === 'large';
   const classNames = cx(
     {
-      'tw-py-1': isSmall,
-      'tw-px-2': isSmall,
-    },
-    {
-      'tw-py-2': isMedium,
-      'tw-px-4': isMedium,
-    },
-    {
-      'tw-py-4': isLarge,
-      'tw-px-8': isLarge,
+      'tw-py-1 tw-px-2': isSmall,
+      'tw-py-2 tw-px-4': isMedium,
+      'tw-py-4 tw-px-8': isLarge,
     },
     'tw-bg-teal-500',
     'tw-text-white',
