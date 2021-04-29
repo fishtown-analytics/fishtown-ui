@@ -12,6 +12,8 @@ Install the Fishtown UI theme and component library using npm when installing Ta
 npm install --save tailwindcss autoprefixer fishtown-analytics/fishtown-ui
 ```
 
+If you're looking to update to a new version in another repo, see [Updating Fishtown UI node module](#updating-fui-node).
+
 ## Usage
 
 ### Tailwind Theme
@@ -71,6 +73,15 @@ const LogInButton: React.FC = () => {
 
 export default LogInButton;
 ```
+
+## <a name="updating-fui-node">Updating Fishtown UI node module</a>
+
+If you are in a repo and having trouble updating from a tag to another:
+
+1. Make the update in package.json
+2. Make a similar manual update in package-lock.json (with the new tag number AND the new commit number)
+
+Changing the `from` in `package-lock.json` specifies how you're naming this commit, while changing the `version` actually ensures you're targetting the correct commit.
 
 ## Contributing
 
