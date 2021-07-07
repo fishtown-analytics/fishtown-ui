@@ -2,12 +2,20 @@ import React, { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cx from 'classnames';
 import {
-  IconName,
   IconPrefix,
   IconProp,
-  IconDefinition,
+  IconDefinition as FaIconDefinition,
+  IconName as FaIconName,
   SizeProp,
+  library,
 } from '@fortawesome/fontawesome-svg-core';
+import { fuiIcons } from './CustomIconType';
+import { IconDefinition as FuiIconDefinition, IconName as FuiIconName } from './custom';
+
+export type IconDefinition = FuiIconDefinition | FaIconDefinition;
+export type IconName = FuiIconName | FaIconName;
+
+library.add(fuiIcons);
 
 export interface IconProps {
   /** A FontAwesomeIcon name or imported icon, must be added to your font-awesome library */
