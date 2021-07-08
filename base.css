@@ -10,4 +10,26 @@
   --color-gray-400: #a0aec0;
   --color-gray-500: #a9a9a9;
   --color-shadow: rgba(0, 0, 0, 0.15);
+  --color-dag-node-selected: #aa49cc;
+  --color-dag-node-exposure-400: #ff833d;
+  --color-dag-node-exposure-500: #fb945a;
+  --color-dag-node-exposure-600: #ffb58b;
+  --color-dag-node-model-400: #1995bc;
+  --color-dag-node-model-500: #5cc6e7;
+  --color-dag-node-model-600: #a5e6fa;
+  --color-dag-node-test-400: #1995bc;
+  --color-dag-node-test-500: #5cc6e7;
+  --color-dag-node-test-600: #a5e6fa;
+  --color-dag-node-analysis-400: #1995bc;
+  --color-dag-node-analysis-500: #5cc6e7;
+  --color-dag-node-analysis-600: #a5e6fa;
+  --color-dag-node-source-400: #58ab26;
+  --color-dag-node-source-500: #70c13f;
+  --color-dag-node-source-600: #a0e974;
+  --color-dag-node-seed-400: #b6ce23;
+  --color-dag-node-seed-500: #c8de41;
+  --color-dag-node-seed-600: #ceeb1b;
+  --color-dag-node-snapshot-400: #786eec;
+  --color-dag-node-snapshot-500: #968dfa;
+  --color-dag-node-snapshot-600: #b7b1fe;
 }
